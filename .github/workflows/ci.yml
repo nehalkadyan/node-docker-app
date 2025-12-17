@@ -1,0 +1,40 @@
+# pipeline name
+name: Node.js CI Pipeline
+
+# events
+on:
+    # event 1
+  push:
+    branches: [ "main" ]
+    # event 2
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+    # first job
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x,22.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: "Install Dependencies"
+      run: npm install
+
+    - name: "Run Build Command"
+      run: echo "npm run build -> Building App....."
+
+    - name: "Build successful"
+      run: echo "Build Succeeded!!"

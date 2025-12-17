@@ -7,7 +7,7 @@ const app = express();
 // api routes
 
 app.get("/", (req, res) => {
-   return res.send("<h1>Hello from Node Sharda") 
+   return res.send("<h1>Hello from Node Sharda</h1>") 
 })
 
 // listen
