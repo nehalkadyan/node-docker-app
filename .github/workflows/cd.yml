@@ -32,7 +32,13 @@ jobs:
       run: echo "docker image built successfully!!"
 
     - name: "Login with Docker credentials"
-      run: echo "dckr_pat_liGt36XFokDTG4PAweReX8gGK2I" | docker login -u nehal524 --password-stdin
+      run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
     - name: "Login successful!!!"
       run: echo "Docker login successful!!"
+
+    - name: "Push Image to Dockert Hub"
+      run: docker push nehal524/dummy-node-app:latest
+
+    - name: "Image pushed successfully"
+      run: echo "Docker Image pushed to Docker Hub successfully!!"
