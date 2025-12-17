@@ -34,5 +34,5 @@ jobs:
     - name: "Login with Docker credentials"
       run: echo "dckr_pat_liGt36XFokDTG4PAweReX8gGK2I" | docker login -u nehal524 --password-stdin
 
-    - name: "Login successful"
+    - name: "Login successful!!!"
       run: echo "Docker login successful!!"
