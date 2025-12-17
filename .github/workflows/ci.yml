@@ -63,6 +63,7 @@ jobs:
 
     - name: "Testing Command"
       run: echo "npm test -> Testing App....."
+    #   run: npm test
 
     - name: "Test successful"
       run: echo "App tested successfully!!"
