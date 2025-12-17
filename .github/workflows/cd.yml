@@ -1,0 +1,32 @@
+# pipeline name
+name: Deployment Pipeline
+
+# events
+on:
+    # event 1
+  push:
+    branches: [ "main" ]
+    # event 2
+#   pull_request:
+#     branches: [ "main" ]
+
+jobs:
+    # first job
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    # strategy:
+    #   matrix:
+    #     node-version: [18.x, 20.x,22.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+
+    - uses: actions/checkout@v4
+    
+    - name: "Build Docker Image"
+      run: docker build -t nehal524/dummy-node-app:latest .
+
+    - name: "Build succesful"
+      run: echo "docker image built successfully!!"
